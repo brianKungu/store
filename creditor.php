@@ -2,7 +2,7 @@
 <?php include('navbar.php')?>
 <?php include('sidebar.php')?>
 <div class="container-fluid"><br>
-    <button class="btn btn-success"><i class="fas fa-plus"></i><a href="creditorsform.php">Add Creditor</a></button><br>
+    <button class="btn btn-success"><a href="creditorsform.php">Add Creditor</a></button><br>
     <br>
         <div class="row">
         
@@ -22,6 +22,8 @@
                     		<th>Amount</th>
                     		<th>Contact</th>
                     		<th>Date issued</th>
+                            <th>Status</th>
+                            <th>Action</th>
                     	</thead>
                     	<tbody>
                     		<div class="body">
@@ -41,7 +43,8 @@
                     				<td><?php echo $row{'contact'}?></td>
                     				<td><?php echo $row{'date_issued'}?></td>
                     				<td><?php echo $row{'status'}?></td>
-
+                                    <?php echo "<td> <a href='update2.php?id=".$row['id']."' class='btn btn-success btn-sm'>update</a> 
+                                    <a  href='delete2.php?id=". $row['id'] ."' class='btn btn-danger btn-sm'>delete</a>"?>
                     			</tr>
                     			<?php
                     				}

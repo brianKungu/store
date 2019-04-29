@@ -19,19 +19,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                        
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-										Profile
-										<b class="caret"></b>
-									</p>
-
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                
-                              </ul>
-                        </li>
+                        
                         <li>
                             <a href="logout.php">
                                 <p>Log out</p>

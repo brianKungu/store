@@ -1,3 +1,12 @@
+<?php
+include('connect.php');
+
+if(!isset($_SESSION['id'])){
+
+	 /*header("Location: http://localhost/mystore/index.php");*/
+}
+include('login.php');
+?>
 <div class="content">
             <div class="container-fluid">
 			<button class="btn btn-success"><a href="add_product.php">Add Product</a></button><br>
@@ -40,8 +49,9 @@
 
 
 									<?php echo "<td> <a href='view.php?id=".$row['id']."' class='btn btn-success btn-sm'>view</a> 
-									<a  href='delete1.php?id=". $row['id'] ."' class='btn btn-danger btn-sm'>delete</a>  
-										<a href='update1.php?id=". $row['id'] ."' class='btn btn-primary btn-sm'>update</a></td>";?>
+									<a href='update.php?id=". $row['id'] ."' class='btn btn-primary btn-sm'>update</a>
+									<a  href='delete.php?id=". $row['id'] ."' class='btn btn-danger btn-sm'>delete</a> "?></td>
+										
 								</tr>
 								
 							

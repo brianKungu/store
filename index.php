@@ -19,9 +19,9 @@
                   username:<input type="text" name="username"><br>
                   </div>
                   <div class="form-group">
-                  password:<input type="password" name="password">
+                  password:<input type="password" name="password" required>
                   </div>
-                  <input type="submit" name="submit" value="Login">
+                  <input type="submit" name="submit" value="submit">
       </div>
                 </form>
               </div>
@@ -29,18 +29,32 @@
   </body>
 </html>
 <?php
-    if(isset($_POST['submit'])){
-      $conn=mysqli_connect("localhost","root","","mystore") or die(mysqli_error($conn));
-      $username=$_POST['username'];
-      $password=$_POST['password'];
-      $select_query=mysqli_query($conn,"select * from users where username='$username' and password='$password' ")or die(mysqli_error($conn));
-      if($select_query){
-        echo"success";
-        header('refresh:0; url=admin.php');
-      }else{
-        echo"failed";
-        header('refresh:0;url=index.php');
-      }
+    session_start();
+$conn=mysqli_connect("localhost","root","","mystore") or die(mysqli_error($conn));
+if(isset($_POST['submit'])){
+  $username=$_POST['username'];
+    $password=$_POST['password'];
+    
+    
+  $admin=mysqli_query($conn,"select * from users where username='$username'and password='$password'")or die(mysqli_error($conn));
+    
+  $row2=mysqli_num_rows($admin);
+  
+    if($row2==1){
+    while($rows2=mysqli_fetch_array($admin)){
+      $_SESSION['username']=$rows2['username'];
+      $_SESSION['password']=$rows2['password'];
+     
+
     }
+  }else{
+    ?>
+    <script>
+      alert("Log In Failed");
+      window.location.href='index.php';
+  </script>
+  <?php
+  }
+}
 ?>
 

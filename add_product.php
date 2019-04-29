@@ -1,9 +1,40 @@
 <?php include('navbar.php')?>
 <?php include('sidebar.php')?>
 
- 
+ <script>
+    function validate(){
+        
+        var product=document.myform.product.value;
+        var productName=document.myform.productname.value;
+        var qauntity=document.myform.quantity.value;
+        var dateDelivered=document.myform.date.value;
+        var supplier=document.myform.supplier.value;
+    
+        if (product==""){
+            alert("A product is required!");
+            return false;
+        }
+        if (productName==""){
+            alert("Product Name is required!");
+            return false;
+        }
+        if (qauntity==""){
+            alert("Quantity of product is required!");
+            return false;
+        }
+        if (dateDelivered==""){
+            alert("Date of issue is a requirement!");
+            return false;
+        }
+        if (supplier==""){
+            alert("Supplier name is required!");
+            return false;
+        }
+
+    }
+</script>
 <div class="content">
-<form method="POST" action="addproduct.php">
+<form method="POST" name="myform" action="addproduct.php" onsubmit="return validate()">
 <h3 >Add Product</h3>
     <div class="container-fluid">    
         <div class="card">

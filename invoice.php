@@ -2,7 +2,7 @@
 <?php include('sidebar.php') ?>
 <?php include('navbar.php') ?>
 <div class="container-fluid"><br>
-    <button class="btn btn-success"><i class="fas fa-plus"></i><a href="add_product_invoice.php">Add Product</a></button><br>
+    <button class="btn btn-success"><a href="add_product_invoice.php">Add Product</a></button><br>
     <br>
         <div class="row">
         
@@ -17,6 +17,7 @@
                     
                     <thead>
                         <th>ID</th>
+                        <th>Receipt no.</th>
                         <th>Product</th>
                         <th>Product_name</th>
                         <th>Quantity</th>
@@ -35,6 +36,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $row{'id'}?></td>
+                                <td><?php echo $row{'receipt'}?></td>
                                 <td><?php echo $row{'product'}?></td>
                                 <td><?php echo $row{'product_name'}?></td>
                                 <td><?php echo $row{'quantity'}?></td>

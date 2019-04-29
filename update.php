@@ -1,31 +1,37 @@
-<?php include('connect.php');?>
+
 <?php include('navbar.php')?>
 <?php include('sidebar.php');?>
+
 <?php
-	include('connect.php');
-	if(ISSet($_GET['id'])){
-		$id=$_GET['id'];
-		$query="SELECT * FROM stock WHERE id='$id'";
-		$select_query=mysqli_query($conn,$query);
-		while($row=mysqli_fetch_array($select_query)){
-			$name=$row['product'];
+include('connect.php');
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+    $query="SELECT * FROM stock WHERE id='$id'";
+    $select_query=mysqli_query($conn,$query);
+    while($row=mysqli_fetch_array($select_query)){
+        $id=$row['id'];
+        $name=$row['product'];
         $product_name=$row['product_name'];
+                
         $quantity=$row['quantity'];
         $date_delivered=$row['date_delivered'];
-			 $id=$row['id'];
-       $supplier=$row['supplier'];
-			
-		}
-		
-		
-	}
+        $supplier=$row['supplier'];
+
+    }
+}
+
 ?>
-<html>
-	<head></head>
-<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Update </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <style>
 	input[type=text], select {
-  width: 75%;
+  width: 60%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -34,18 +40,12 @@
   box-sizing: border-box;
 }
 </style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>View </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
+
 <body>
 
 <div class="container">
-  <h2 class="text-center">view record</h2>
+  <h2 class="text-center">Update Record</h2>
   <form class="form-horizontal" action="" method="POST">
   
     <div class="form-group">
@@ -87,8 +87,40 @@
         <input type="text" rows="4" cols="50" autofocus name="supplier"  value="<?php echo $supplier;?>">
       </div>
     </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        
+        <input type="submit" name="update" class="btn btn-success" value="Update">
+      </div>
+    </div>
+           
+     
+        
+      
+   
 
+	</form>
+</div>
 </body>
 </html>
+<?php
+  include('connect.php');
+  if(isset($_POST['update'])){
+  	    $name=$_POST['product'];
+        $product_name=$_POST['product_name'];
+        $quantity=$_POST['quantity'];
+        $date_delivered=$_POST['date_delivered'];
+        $supplier=$_POST['supplier'];
+     
+     $queryupdate=mysqli_query($conn,"update stock set product='$name',product_name='$product_name',quantity='$quantity',date_delivered='$date_delivered',supplier='$supplier' where id='$id'")or die(mysqli_error($conn));
+     if($queryupdate){
+        echo'<script>window.alert("Record updated successfully")</script>';
+        echo('<meta http-equiv="refresh" content="0">');
+        } else{
+        echo'<script>window.alert("Record not updated. Please try again.")</script>';
+        header('refresh:0;url=update.php');			
+        }
+  }
+?>
 <?php include('footer.php');?>
 

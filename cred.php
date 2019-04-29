@@ -1,10 +1,7 @@
 <?php
-include('connect.php');
-?>
-<?php
 if(isset($_POST['submit'])){
 	$conn=mysqli_connect("localhost","root","","mystore");
-	$db=mysqli_select_db($conn,"mystore");
+    
 
 	$product=$_POST['product'];
 	$item=$_POST['item'];
@@ -13,7 +10,7 @@ if(isset($_POST['submit'])){
 	$contact=$_POST['contact'];
 	$date_issued=$_POST['date'];
 	$status=$_POST['status'];
-	$query="INSERT INTO creditor(id,product,item,quantity,amount,contact,date_issued,status) VALUES (NULL,'$product','$item','$quantity','$amount','$contact','$date_issued','$status')";
+	$query="INSERT INTO creditor(id,name,item,quantity,amount,contact,date_issued,status) VALUES (NULL,'$product','$item','$quantity','$amount','$contact','$date_issued','$status')";
 	$insert=mysqli_query($conn,$query);
 	if($insert){
 		echo'<script>window.alert("success")</script>';

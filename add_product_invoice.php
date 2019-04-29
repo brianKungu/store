@@ -1,14 +1,71 @@
+<?php include('connect.php')?>
 <?php include('navbar.php')?>
 <?php include('sidebar.php')?>
+<script>
+    function validate(){
+        var receipt=document.myform.receipt.value;
+        var product=document.myform.product.value;
+        var productName=document.myform.productname.value;
+        var qauntity=document.myform.quantity.value;
+        var dateDelivered=document.myform.date.value;
+        var cost=document.myform.cost.value;
+        var supplier=document.myform.supplier.value;
+        var contact=document.myform.contact.value;
+        if (receipt==""){
+            alert("Andika Receipt no.!");
+            return false;
+        }
+        if (product==""){
+            alert("A product is required!");
+            return false;
+        }
+        if (productName==""){
+            alert("Product Name is required!");
+            return false;
+        }
+        if (qauntity==""){
+            alert("Quantity of product is required!");
+            return false;
+        }
+        if (dateDelivered==""){
+            alert("Date of issue is a requirement!");
+            return false;
+        }
+        if (cost==""){
+            alert("Cost of item brought is required!");
+            return false;
+        }
+        if (supplier==""){
+            alert("Supplier name is required!");
+            return false;
+        }
+        if (contact==""){
+            alert("Supplier's phonenumber is required!");
+            return false;
+        }
 
+    }
+
+
+
+
+
+
+</script>
  
 <div class="content">
-<form method="POST" action="add_receipt.php">
-<h3 >Add Receipt</h3>
+<form method="POST" action="add_receipt.php" name="myform" onsubmit="return validate()">
+<h3 >Add Invoice</h3>
     <div class="container-fluid">    
         <div class="card">
         <div class="col-md-8">
                 <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>Receipt</label>
+                            <input type="text" class="form-control" placeholder="123764" name="receipt" >
+                        </div>
+                    </div>
                     <div class="col-md-5">
                         <div class="form-group">
                             <label>Product</label>
