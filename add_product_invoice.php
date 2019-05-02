@@ -12,7 +12,7 @@
         var supplier=document.myform.supplier.value;
         var contact=document.myform.contact.value;
         if (receipt==""){
-            alert("Andika Receipt no.!");
+            alert("Input Receipt no.!");
             return false;
         }
         if (product==""){

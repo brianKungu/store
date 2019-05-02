@@ -27,11 +27,7 @@
                                 <?php
                                 $select="SELECT * FROM purchase";
                                 $query=mysqli_query($conn,$select);
-                                while ($row=mysqli_fetch_array($query)){; 
-                                 
-
-
-                                ?>
+                                while ($row=mysqli_fetch_array($query)){?>
                                 <tr>
                                     <td><?php echo $row{'id'}?></td>
                                     <td><?php echo $row{'item'}?></td>
@@ -40,11 +36,12 @@
                                     <td><?php echo $row{'date_sold'}?></td>
 
 
-                                    <?php echo"<td><a href='update3.php?id=".$row['id']."' class='btn btn-success btn-sm'>update</a>
-                                        <a  href='delete3.php?id=". $row['id'] ."' class='btn btn-danger btn-sm'>delete</a>"?>
-                                        </td>
+                                     <td>
+                                        <a href="update3.php?id=<?php echo $row['id'];?>" class='btn btn-success btn-sm'>update</a>
+                                        <a  href='delete3.php?id=<?php echo $row['id'] ;?>' class='btn btn-danger btn-sm'>delete</a>
+                                      </td>
 
-                                </tr>
+                                </tr> 
                                 <?php
                                     }
                                 ?>

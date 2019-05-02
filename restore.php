@@ -132,3 +132,21 @@ if(isset($_POST['submit'])){
     </div>            
   </body>
 </html>
+<?php
+if (!isset($_SESSION['user_id'])) {
+  header('Location:https://localhost/mystore/index.php');
+}else{
+  header('Location:https://localhost/mystore/admin.php');
+}
+require('processlogin.php');
+
+?>
+if($row==1){
+      while ($rows=mysqli_fetch_array($admin)) {
+        $_SESSION['loginid']=$rows['id'];
+      }
+       echo"<script>window.alert('success')</script>";
+       header('refresh:0;url=admin.php');
+    }else{
+      echo"<script>window.alert('failed')</script>";
+       header('refresh:0;url=index.php');

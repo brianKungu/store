@@ -1,35 +1,7 @@
-<html>
-  <head>
-    <title></title>
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles/style.css" rel="stylesheet" />
-
-  </head>
-  <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6">
-                <form name="login-form" action="" method="POST">
-                <legend>
-                  <fieldset><i>Login</i></fieldset>
-                </legend>
-                  <div class="form-group">
-                  username:<input type="text" name="username"><br>
-                  </div>
-                  <div class="form-group">
-                  password:<input type="password" name="password" required>
-                  </div>
-                  <input type="submit" name="submit" value="submit">
-      </div>
-                </form>
-              </div>
-    </div>            
-  </body>
-</html>
 <?php
-    session_start();
+//require('processlogin.php');
+session_start();
+
 $conn=mysqli_connect("localhost","root","","mystore") or die(mysqli_error($conn));
 if(isset($_POST['submit'])){
   $username=$_POST['username'];
@@ -38,23 +10,65 @@ if(isset($_POST['submit'])){
     
   $admin=mysqli_query($conn,"select * from users where username='$username'and password='$password'")or die(mysqli_error($conn));
     
-  $row2=mysqli_num_rows($admin);
+  $row=mysqli_num_rows($admin);
+  if($row==1){
+  	while($rows2=mysqli_fetch_array($admin)){
   
-    if($row2==1){
-    while($rows2=mysqli_fetch_array($admin)){
-      $_SESSION['username']=$rows2['username'];
-      $_SESSION['password']=$rows2['password'];
-     
-
-    }
-  }else{
+    $_SESSION['pass']=$rows2['password'];
+	$_SESSION['user']=$rows2['username'];
+	$_SESSION['user_id'] = $rows2['id'];
+  $_SESSION['user_id'] = true;
+    		
+            
+     }
+     ?>
+     <script>window.alert("Success");
+            window.location.href='admin.php';
+            </script>
+            <?php
+   }else{
+   	?>
+   	<script>
+   	window.alert("Failed");
+   	window.location.href='index.php';
+   	</script>
+   	<?php
+   }
+   }
     ?>
-    <script>
-      alert("Log In Failed");
-      window.location.href='index.php';
-  </script>
-  <?php
-  }
-}
-?>
+<html>
+  <head>
+    <title></title>
+    <link href="bootstrap/css/animate.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap/css/style.css" rel="stylesheet" />
+
+  </head>
+  <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+      	
+                <h3><i>Administrator</i></h3>
+                
+                <form name="login-form" action="" method="POST" >
+                
+                  <div class="form-group">
+                  <input type="text" name="username" placeholder="Enter your username!"><br>
+                  </div>
+                  <div class="form-group">
+                  <input type="password" name="password" placeholder="Enter your password!">
+                  </div>
+                  <input type="submit" name="submit" value="login">
+      </div>
+                </form>
+              </div>
+    </div>            
+  </body>
+</html>
+
+    
+      
+  
 
