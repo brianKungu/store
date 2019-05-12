@@ -1,7 +1,11 @@
 <?php include('connect.php')?>
 <?php include('navbar.php')?>
 <?php include('sidebar.php')?>
+<?php include('query_product.php')?>
+<?php include('query_supplier.php')?>
+
 <script>
+
     function validate(){
         var receipt=document.myform.receipt.value;
         var product=document.myform.product.value;
@@ -11,47 +15,22 @@
         var cost=document.myform.cost.value;
         var supplier=document.myform.supplier.value;
         var contact=document.myform.contact.value;
-        if (receipt==""){
-            alert("Input Receipt no.!");
-            return false;
-        }
-        if (product==""){
-            alert("A product is required!");
-            return false;
-        }
-        if (productName==""){
-            alert("Product Name is required!");
-            return false;
-        }
-        if (qauntity==""){
-            alert("Quantity of product is required!");
-            return false;
-        }
-        if (dateDelivered==""){
-            alert("Date of issue is a requirement!");
-            return false;
-        }
-        if (cost==""){
-            alert("Cost of item brought is required!");
-            return false;
-        }
-        if (supplier==""){
-            alert("Supplier name is required!");
-            return false;
-        }
-        if (contact==""){
-            alert("Supplier's phonenumber is required!");
-            return false;
-        }
 
+
+        product_details = ['receipt','product'];
+
+        for (var i = 0 ; i<product_details.length; i++) {
+
+            field = product_details[i];
+
+            value = document.myform[field].value;
+            if(value == ""){
+                alert("Input "+field+" is required!");
+            return false;
+            }
+        }
     }
-
-
-
-
-
-
-</script>
+    </script>
  
 <div class="content">
 <form method="POST" action="add_receipt.php" name="myform" onsubmit="return validate()">
@@ -69,7 +48,16 @@
                     <div class="col-md-5">
                         <div class="form-group">
                             <label>Product</label>
-                            <input type="text" class="form-control" placeholder="unga,sukari" name="product" >
+
+                            <select class="form-control">
+                                <?php foreach ($products as $key => $product) {
+                                    echo "<option value=".$product['id'].">".$product['name']."</option>";
+                                }
+                                ?>
+                            </select>
+
+
+                           <!--  <input type="text" class="form-control" placeholder="unga,sukari" name="product" > -->
                         </div>
                     </div>
 
@@ -101,18 +89,22 @@
                                 <input type="text"  class="form-control" placeholder="30000" name="cost" >
                         </div>
                         </div>
+
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Supplier</label>
-                                <input type="text"  class="form-control" placeholder="Unileaver" name="supplier" >
+                                <select class="form-control">
+                                <?php foreach ($suppliers as $key => $supplier) {
+                                    echo "<option value=".$supplier['id'].">".$supplier['name']."</option>";
+                                }
+                                ?>
+                            </select>
+
+                               <!--  <input type="text"  class="form-control" placeholder="Unileaver" name="supplier" > -->
                             </div>
                         </div>
-                        <div class="col-sm-3">
                         <div class="form-group">
-                                <label>Contact</label>
-                                <input type="text"  class="form-control" placeholder="0724" name="contact" >
-                            </div>
-                        </div>
+                        
                         
                         
                 </div>

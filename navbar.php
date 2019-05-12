@@ -76,6 +76,18 @@
                         <p>Purchase list</p>
                     </a>
                 </li>
+                <li>
+                    <a href="product.php">
+                        <i class="pe-7s-science"></i>
+                        <p>Product</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="supplier.php">
+                        <i class="pe-7s-user"></i>
+                        <p>Suppliers</p>
+                    </a>
+                </li>
                 
             </ul>
     	</div>

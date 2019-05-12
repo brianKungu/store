@@ -40,6 +40,15 @@ if(isset($_GET['id'])){
   border-radius: 4px;
   box-sizing: border-box;
 }
+input[type=date], select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 </style>
 </head>
 
@@ -89,7 +98,7 @@ if(isset($_GET['id'])){
     <div class="form-group">
       <label class="control-label col-sm-2">Date:</label>
       <div class="col-sm-10">
-        <input type="text" rows="4" cols="50" autofocus name="date"  value="<?php echo $date;?>">
+        <input type="date" rows="4" cols="50" autofocus name="date"  value="<?php echo $date;?>">
       </div>
     </div>
         

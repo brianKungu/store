@@ -1,11 +1,12 @@
 <?php
-//require('processlogin.php');
+
 session_start();
 
 $conn=mysqli_connect("localhost","root","","mystore") or die(mysqli_error($conn));
 if(isset($_POST['submit'])){
-  $username=$_POST['username'];
-    $password=$_POST['password'];
+  $username=mysqli_real_escape_string($conn,$_POST['username']);
+    $password=md5(mysqli_real_escape_string($conn,$_POST['password']))
+    ;
     
     
   $admin=mysqli_query($conn,"select * from users where username='$username'and password='$password'")or die(mysqli_error($conn));

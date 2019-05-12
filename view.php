@@ -33,6 +33,15 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+input[type=date], select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +87,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2">Date Delivered:</label>
       <div class="col-sm-10">
-        <input type="text" rows="4" cols="50" autofocus name="date_delivered"  value="<?php echo $date_delivered;?>">
+        <input type="date" rows="4" cols="50" autofocus name="date_delivered"  value="<?php echo $date_delivered;?>">
       </div>
     </div>
         <div class="form-group">

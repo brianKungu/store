@@ -14,12 +14,12 @@
                     </div>
                     <div class="content table-responsive table-full-width">
                     <table class="table table-bordered">
-                    
+                        
                     <thead>
                         <th>ID</th>
                         <th>Receipt no.</th>
-                        <th>Product</th>
-                        <th>Product_name</th>
+                        <th>Product Id</th>
+                        
                         <th>Quantity</th>
                         <th>Cost</th>
                         <th>Supplier</th>
@@ -37,8 +37,8 @@
                             <tr>
                                 <td><?php echo $row{'id'}?></td>
                                 <td><?php echo $row{'receipt'}?></td>
-                                <td><?php echo $row{'product'}?></td>
-                                <td><?php echo $row{'product_name'}?></td>
+                                <td><?php echo $row{'product_id'}?></td>
+                                
                                 <td><?php echo $row{'quantity'}?></td>
                                 <td><?php echo $row{'cost'}?></td>
                                 <td><?php echo $row{'supplier'}?></td>
