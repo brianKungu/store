@@ -7,17 +7,11 @@
 <script>
 
     function validate(){
-        var receipt=document.myform.receipt.value;
-        var product=document.myform.product.value;
-        var productName=document.myform.productname.value;
-        var qauntity=document.myform.quantity.value;
-        var dateDelivered=document.myform.date.value;
-        var cost=document.myform.cost.value;
-        var supplier=document.myform.supplier.value;
-        var contact=document.myform.contact.value;
+        
+        
 
 
-        product_details = ['receipt','product'];
+        product_details = ['receipt','product','qauntity','dateDelivered','cost','supplier'];
 
         for (var i = 0 ; i<product_details.length; i++) {
 
@@ -49,7 +43,7 @@
                         <div class="form-group">
                             <label>Product</label>
 
-                            <select class="form-control">
+                            <select class="form-control" name="product">
                                 <?php foreach ($products as $key => $product) {
                                     echo "<option value=".$product['id'].">".$product['name']."</option>";
                                 }
@@ -91,7 +85,7 @@
                         </div>
 
                         <div class="col-md-3">
-                            <div class="form-group">
+                            <div class="form-group" name="supplier">
                                 <label>Supplier</label>
                                 <select class="form-control">
                                 <?php foreach ($suppliers as $key => $supplier) {

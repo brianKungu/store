@@ -1,4 +1,12 @@
-<?php include('connect.php') ?>
+<?php include('connect.php');
+session_start();
+if (isset($_SESSION['user_id']) && $_SESSION['user_id']===true) {
+}else{
+        header('Location:https://localhost/mystore/index.php');
+
+}
+?>
+
 <?php include('sidebar.php') ?>
 <?php include('navbar.php') ?>
 <div class="container-fluid"><br>
@@ -41,7 +49,8 @@
                                 
                                 <td><?php echo $row{'quantity'}?></td>
                                 <td><?php echo $row{'cost'}?></td>
-                                <td><?php echo $row{'supplier'}?></td>
+                                 <?php echo "<td> <a href='record.php?id=".$row['id']."' class='btn btn-success btn-sm'>view</a>"?> 
+                                
                                 <td><?php echo $row{'contact'}?></td>
                                 <td><?php echo $row{'date_delivered'}?></td>
                                 

@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -16,13 +17,14 @@ if(isset($_POST['submit'])){
   	while($rows2=mysqli_fetch_array($admin)){
   
     $_SESSION['pass']=$rows2['password'];
-	$_SESSION['user']=$rows2['username'];
-	$_SESSION['user_id'] = $rows2['id'];
-  $_SESSION['user_id'] = true;
-    		
+  	$_SESSION['user']=$rows2['username'];
+  	$_SESSION['user_id'] = $rows2['id'];
+    $_SESSION['user_id'] = true;
+    // $passwordhash=password_hash($password, PASSWORD_DEFAULT);
             
      }
      ?>
+     
      <script>window.alert("Success");
             window.location.href='admin.php';
             </script>
@@ -40,12 +42,15 @@ if(isset($_POST['submit'])){
 <html>
   <head>
     <title></title>
+      <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    
     <link href="bootstrap/css/animate.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="bootstrap/css/style.css" rel="stylesheet" />
 
   </head>
   <body>
+    
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-3"></div>

@@ -2,7 +2,7 @@
 <?php include('navbar.php')?>
 <?php include('sidebar.php')?>
 <div class="content">
-	<form method="POST" action="" name="myform" onsubmit="return validate()">
+	<form method="POST" action="sup.php" name="myform" onsubmit="return validate()">
 	<h3 >Add Supplier</h3>
 	    <div class="container-fluid">    
 	        <div class="card">
@@ -14,14 +14,14 @@
 	                            <input type="text" class="form-control" placeholder="Andrew" name="name" >
 	                        </div>
 	                    </div>
-	                    <div class="col-md-5">
+	                    <div class="col-md-4">
 	                        <div class="form-group">
 	                            <label>Company</label>
 	                            <input type="text" class="form-control" placeholder="sony sugar" name="company" >
 	                        </div>
 	                    </div>
 
-	                    <div class="col-md-2">
+	                    <div class="col-md-3">
 	                        <div class="form-group">
 	                            <label>Contact</label>
 	                            <input type="text" class="form-control" placeholder="0724" name="contact" >

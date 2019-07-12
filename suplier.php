@@ -1,8 +1,16 @@
+<?php include('connect.php');
+session_start();
+if (isset($_SESSION['user_id']) && $_SESSION['user_id']===true) {
+}else{
+    header('Location:https://localhost/mystore/index.php');
+
+}
+?>
 <?php include('navbar.php')?>
 <?php include('sidebar.php');?>
 
 <?php
-include('connect.php');
+
 if(isset($_GET['id'])){
     $id=$_GET['id'];
     $query="SELECT * FROM suplier WHERE id='$id'";

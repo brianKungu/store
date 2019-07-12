@@ -1,4 +1,11 @@
-<?php include('connect.php')?>
+<?php include('connect.php');
+session_start();
+if (isset($_SESSION['user_id']) && $_SESSION['user_id']===true) {
+}else{
+        header('Location:https://localhost/mystore/index.php');
+
+}
+?>
 <?php include('navbar.php')?>
 <?php include('sidebar.php')?>
 <div class="container-fluid"><br>

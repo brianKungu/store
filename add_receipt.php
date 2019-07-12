@@ -9,8 +9,8 @@ if(isset($_POST['submit'])){
     $cost=$_POST['cost'];
     $datedelivered=$_POST['date'];
     $supplier=$_POST['supplier'];
-    $contact=$_POST['contact'];
-    $query= "INSERT INTO invoice(id,receipt,product,product_name,quantity,cost,date_delivered,supplier,contact) VALUES(NULL,'$receipt', '$product','$productname','$quantity','$cost','$datedelivered','$supplier','$contact')";
+    
+    $query= "INSERT INTO invoice(id,receipt,product,product_name,quantity,cost,date_delivered,supplier) VALUES(NULL,'$receipt', '$product','$productname','$quantity','$cost','$datedelivered','$supplier')";
     $insert=mysqli_query($conn, $query);
     if($insert){
         echo'<script>window.alert("success")</script>';
