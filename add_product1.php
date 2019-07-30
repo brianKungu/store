@@ -14,6 +14,7 @@
 
     }
 </script>
+
 <div class="content">
     <form method="POST" name="myform" action="addproduct1.php" onsubmit="return validate()">
     <h3 >Add Product</h3>

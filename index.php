@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
   <head>
     <title></title>
       <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    
+    ////<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="bootstrap/css/animate.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="bootstrap/css/style.css" rel="stylesheet" />

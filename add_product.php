@@ -33,6 +33,23 @@
 
     }
 </script>
+<!-- <script>
+    function validate(){
+        options=['product','productName','quantity','dateDelivered','supplier'];
+        for(var i=0;i<options.length;i++){
+            field=options[i];
+            value=document.myform[field].value;
+            if(value==""){
+                alert("input" +field+ "is required!");
+            }
+        }
+
+    }
+
+
+
+
+</script> -->
 <div class="content">
 <form method="POST" name="myform" action="addproduct.php" onsubmit="return validate()">
 <h3 >Add Product</h3>
